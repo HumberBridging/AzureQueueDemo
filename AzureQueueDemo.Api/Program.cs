@@ -1,4 +1,7 @@
 
+using AzureQueueDemo.Api.Options;
+using AzureQueueDemo.Api.Services;
+
 namespace AzureQueueDemo.Api;
 
 public class Program
@@ -12,6 +15,16 @@ public class Program
         builder.Services.AddControllers();
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
+
+        //Options Binding
+        builder.Services
+            .AddOptions<QueueStorageOptions>()
+            .Bind(builder.Configuration.GetSection(QueueStorageOptions.SectionName))
+            .ValidateDataAnnotations()
+            .ValidateOnStart();
+
+        //DI
+        builder.Services.AddScoped<IOrderPublisher, OrderPublisher>();
 
         var app = builder.Build();
 
