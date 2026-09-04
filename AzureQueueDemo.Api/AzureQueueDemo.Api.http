@@ -1,0 +1,6 @@
+@AzureQueueDemo.Api_HostAddress = http://localhost:5075
+
+GET {{AzureQueueDemo.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
