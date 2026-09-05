@@ -6,6 +6,8 @@ public sealed class QueueStorageOptions
 {
     public const string SectionName = "QueueStorage";
 
+    public string? ServiceUri { get; set; } = string.Empty;
+
     /// <summary>For Local dev use : "UseDevelopmentStorage=true"</summary>
     public string? ConnectionString { get; set; }
 
