@@ -3,6 +3,7 @@ using AzureQueueDemo.Api.Options;
 using AzureQueueDemo.Api.Services;
 using Microsoft.Extensions.Azure;
 using Azure.Storage.Queues;
+using Scalar.AspNetCore;
 
 namespace AzureQueueDemo.Api;
 
@@ -60,6 +61,7 @@ public class Program
         if (app.Environment.IsDevelopment())
         {
             app.MapOpenApi();
+            app.MapScalarApiReference();
         }
 
         app.UseHttpsRedirection();
